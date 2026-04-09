@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Iaas/Devops/goal-manager
 
     steps:
     - name: Checkout code
@@ -40,7 +43,7 @@ jobs:
     - name: Build Docker image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: Iaas/Devops/goal-manager
         push: false
         tags: goal-manager:latest
 
